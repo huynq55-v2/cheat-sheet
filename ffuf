@@ -1,4 +1,4 @@
-ffuf -w ./common.txt -u http://ignition.htb/FUZZ -mc 200 -s -ic
+ffuf -w ./common.txt -u http://ignition.htb/FUZZ -mc 200,403 -s -ic
 -mc: match
 -s: silent
 -ic: ignore comment
