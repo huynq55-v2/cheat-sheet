@@ -1,0 +1,8 @@
+ssh -L 5432:localhost:5432 christine@10.129.228.195
+======================================================
+first 5432: local port
+localhost: service run on the same host as remote host
+second 5432: remote port
+christine: user name
+10.129.228.195: remote host
+======================================================
