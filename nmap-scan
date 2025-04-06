@@ -1,0 +1,1 @@
+nmap -p- -T4 --min-rate=1000 <domain, IP>
